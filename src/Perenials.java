@@ -7,8 +7,8 @@ public class Perenials extends Flora {
     public Perenials() {
     }
 
-    public Perenials(String englishName, String latinName, String type, int floraID, String soil, String light, int height) {
-        super(englishName, latinName, type, floraID);
+    public Perenials(String latinName, String latvianName, String type, int floraID, String soil, String light, int height) {
+        super(latvianName, latinName, type, floraID);
         this.soil = soil;
         this.light = light;
         this.height = height;

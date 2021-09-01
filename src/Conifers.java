@@ -7,8 +7,8 @@ public class Conifers extends Flora {
     public Conifers() {
     }
 
-    public Conifers(String englishName, String latinName, String type, int floraID, String soil, String light, int height) {
-        super(englishName, latinName, type, floraID);
+    public Conifers(String latinName, String latvianName, String type, int floraID, String soil, String light, int height) {
+        super(latvianName, latinName, type, floraID);
         this.soil = soil;
         this.light = light;
         this.height = height;
