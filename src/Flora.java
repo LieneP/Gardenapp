@@ -1,26 +1,18 @@
 public class Flora {
 
-    protected String englishName;
     protected String latinName;
+    protected String latvianName;
     protected String type;
     protected int floraID;
 
     public Flora() {
     }
 
-    public Flora(String englishName, String latinName, String type, int floraID) {
-        this.englishName = englishName;
+    public Flora(String latinName, String latvianName, String type, int floraID) {
         this.latinName = latinName;
+        this.latvianName = latvianName;
         this.type = type;
         this.floraID = floraID;
-    }
-
-    public String getEnglishName() {
-        return englishName;
-    }
-
-    public void setEnglishName(String englishName) {
-        this.englishName = englishName;
     }
 
     public String getLatinName() {
@@ -29,6 +21,14 @@ public class Flora {
 
     public void setLatinName(String latinName) {
         this.latinName = latinName;
+    }
+
+    public String getLatvianName() {
+        return latvianName;
+    }
+
+    public void setLatvianName(String latvianName) {
+        this.latvianName = latvianName;
     }
 
     public String getType() {
@@ -50,8 +50,8 @@ public class Flora {
     @Override
     public String toString() {
         return "Flora{" +
-                "englishName='" + englishName + '\'' +
-                ", latinName='" + latinName + '\'' +
+                "latinName='" + latinName + '\'' +
+                ", latvianName='" + latvianName + '\'' +
                 ", type='" + type + '\'' +
                 ", floraID=" + floraID +
                 '}';
