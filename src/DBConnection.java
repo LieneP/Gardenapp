@@ -34,6 +34,18 @@ public class DBConnection {
             exception.printStackTrace();
             System.out.println("Database issues" + exception);
         }
+
+    }
+    public void getFlora(){
+        try{
+        Statement statement = conn.createStatement();
+        String sqlStatement = "select * from Flora";
+        ResultSet rs = statement.executeQuery(sqlStatement);
+
+    } catch (SQLException exception) {
+        exception.printStackTrace();
+        System.out.println("Database issues" + exception);
+    }
     }
 }
 

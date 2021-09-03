@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        DBConnection Floradb = new DBConnection();
+        DBConnection FloraDb = new DBConnection();
 
         System.out.println("======== WELCOME TO GARDEN APPLICATION! +++++++++");
         System.out.println("Please choose next step:");
@@ -10,5 +10,6 @@ public class Main {
         System.out.println("2 - Display information about available plants.");
         System.out.println("0 - Exit");
 
+        System.out.println(FloraDb);
     }
 }
