@@ -1,15 +1,87 @@
+import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
 
         DBConnection FloraDb = new DBConnection();
+        Scanner input = new Scanner(System.in);
 
-        System.out.println("======== WELCOME TO GARDEN APPLICATION! +++++++++");
-        System.out.println("Please choose next step:");
-        System.out.println("1 - Show advice what to plant.");
-        System.out.println("2 - Display information about available plants.");
-        System.out.println("0 - Exit");
+        System.out.println("======== WELCOME TO GARDEN APPLICATION! +++++++++\n");
+        System.out.println("Please choose one of two options:\n");
+        int choice;
+        do{
+            System.out.println("1.) Please suggest a plant based on conditions.");
+            System.out.println("2.) Would like to choose a plant from a list.");
+            System.out.println("Enter Your Menu Choice: ");
 
-        System.out.println(FloraDb);
+            choice = input.nextInt();
+        }
+
+        while(choice >2);
+
+       switch(choice){
+
+           case 1:
+               int type;
+               System.out.println("Please select one of following plant type:");
+               System.out.println("1.) Conifers");
+               System.out.println("2.) Leaf Trees");
+               System.out.println("3.) Perennials");
+
+               type = input.nextInt();
+
+               int soil;
+               System.out.println("What type of soil do you have in your garden, please select:");
+               System.out.println("1.) clay soil");
+               System.out.println("2.) sandy soil");
+               System.out.println("3.) clay sand soil");
+               System.out.println("4.) loam soil");
+               System.out.println("5.) peat soil");
+
+               soil = input.nextInt();
+
+               int light;
+               System.out.println("Please select light conditions:");
+               System.out.println("1.) sunny");
+               System.out.println("2.) shady");
+
+               light = input.nextInt();
+
+               int height;
+               System.out.println("Please select the willing height:");
+               System.out.println("1.) 0-50 cm");
+               System.out.println("2.) 51-100 cm");
+               System.out.println("3.) 101-200 cm");
+               System.out.println("4.) above 200 cm");
+
+               height = input.nextInt();
+
+               System.out.println("Please pick a random plant");
+               System.out.println("Exit");
+
+               break;
+
+           case 2:
+               int type2;
+               System.out.println("Please select one of following plant type:");
+               System.out.println("1.) Conifers");
+               System.out.println("2.) Leaf Trees");
+               System.out.println("3.) Perennials");
+               System.out.println("4.) Exit");
+
+               type2 = input.nextInt();
+               break;
+       }
+        // Bad Menu Option Direct
+        if (choice > 2 || choice < 1){
+            System.out.println("This is not a valid Menu Option! Please Select Another.");
+            do{
+                choice = input.nextInt();
+            }
+            while(choice < 3 );
+        }
+
+
+
     }
 }
