@@ -1,3 +1,4 @@
+import java.sql.*;
 import java.util.Scanner;
 public class Main {
 
@@ -8,18 +9,18 @@ public class Main {
 
         System.out.println("======== WELCOME TO GARDEN APPLICATION! +++++++++\n");
         System.out.println("Please choose one of two options:\n");
-        int choice;
+        int menuEntry;
         do{
             System.out.println("1.) Please suggest a plant based on conditions.");
             System.out.println("2.) Would like to choose a plant from a list.");
             System.out.println("Enter Your Menu Choice: ");
 
-            choice = input.nextInt();
+            menuEntry = input.nextInt();
         }
 
-        while(choice >2);
+        while(menuEntry >2);
 
-       switch(choice){
+       switch(menuEntry) {
 
            case 1:
                int type;
@@ -61,6 +62,9 @@ public class Main {
 
                break;
 
+           default:
+               System.out.println("menu item does not exist");
+
            case 2:
                int type2;
                System.out.println("Please select one of following plant type:");
@@ -70,15 +74,44 @@ public class Main {
                System.out.println("4.) Exit");
 
                type2 = input.nextInt();
+               switch (type2) {
+                   case "Conifers":
+                       Flora getType = Conifers {
+                       System.out.println(FloraDb.getFlora().set(Conifers));
+                   }
+                   System.out.println();
+                       break;
+
+                   case "Leaf Trees":
+                       Flora getType = LeafTrees {
+                       System.out.println(FloraDb : LeafTrees);
+                   }
+                   System.out.println();
+                       break;
+
+                   case "Perennials":
+                       Flora getType = Perenials {
+                       System.out.println(FloraDb : Perenials);
+                   }
+                   System.out.println();
+                       break;
+
+                   default:
+                       throw new IllegalStateException("Unexpected value: " + type2);
+               }
+
+
                break;
        }
+
+
         // Bad Menu Option Direct
-        if (choice > 2 || choice < 1){
+        if (menuEntry > 2 || menuEntry < 1){
             System.out.println("This is not a valid Menu Option! Please Select Another.");
             do{
-                choice = input.nextInt();
+                menuEntry = input.nextInt();
             }
-            while(choice < 3 );
+            while(menuEntry < 3 );
         }
 
 
