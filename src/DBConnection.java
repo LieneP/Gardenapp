@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class DBConnection {
 
     private Connection conn;
+    private String flora;
 
     public DBConnection() {
 
@@ -37,51 +38,39 @@ public class DBConnection {
         }
 
     }
-    public ArrayList<Flora> getFlora(){
 
-        ArrayList<Flora> floraList = new ArrayList<~>();
+    // we should create sql statement for:
+    // 1. print out all info from database about one type plants, for example, conifers
+    // 2. filter out exact info from database
 
-        try{
-        Statement statement = conn.createStatement();
-        String sqlStatement = "select * from Flora";
-        ResultSet rs = statement.executeQuery(sqlStatement);
+    public void getConifers () {
 
-        while ( rs.next() ) {
+        try {
 
-        // add new plant
-            Flora flora;
-            if (flora instanceof Conifers || flora instanceof Perenials || flora instanceof LeafTrees) {
-                Conifers conifer = (Conifers) flora;
-                Flora eqlstatement = new Flora();
+            Statement statement = conn.createStatement();
+            String sqlStatement = "SELECT * FROM Flora WHERE type = 'conifers'";
 
-                Flora flora = new Flora();
-                flora.setFloraID(rs.getInt("id"));
-                flora.setLatinName(rs.getString("latinName"));
-                flora.setLatvianName(rs.getString("latvianName"));
-                flora.setType(rs.getString("type"));
-                flora.setSoil(rs.getString("soil"));
-                flora.setLight(rs.getString("light"));
-                flora.setHeight(rs.getInt("height"));
-                System.out.println(flora.toString());
+            ResultSet rs = statement.executeQuery(sqlStatement);
 
-            } else {
+            System.out.println("Please see the List of all Conifers in database :");
 
-                sqlStatement = new Flora();
-                        "'" + flora.getLatinName() + "'," +
-                        "'" + flora.getLatvianName() + "'," +
-                        "'" + flora.getType() + "'," +
-                        ")";
+            Conifers flora = new Conifers();
+
+            while (rs.next()) {
+                flora.setFloraID(rs.getInt("floraID"));
+                // aizpildits atlikušās kolonnas
+                System.out.println(flora);
             }
-            statement.execute(sqlStatement);
-        }
 
         } catch (SQLException exception) {
-            System.out.println("Error getting Plant list: " + exception);
-    }
-        return floraList;
+            System.out.println("Error getting Conifer list: " + exception);
+        }
     }
 
-    public void createFlora( Flora flora ) {
+
+
+        // add new plant to database
+    public void addNewPlant( Flora flora ) {
 
         try {
             Statement statement = conn.createStatement();

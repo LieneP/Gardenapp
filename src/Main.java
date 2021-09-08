@@ -2,6 +2,10 @@ import java.sql.*;
 import java.util.Scanner;
 public class Main {
 
+    private static Object Conifers;
+    private static Object LeafTrees;
+    private static Object Perenials;
+
     public static void main(String[] args) {
 
         DBConnection FloraDb = new DBConnection();
@@ -18,7 +22,7 @@ public class Main {
             menuEntry = input.nextInt();
         }
 
-        while(menuEntry >2);
+        while(menuEntry >3);
 
        switch(menuEntry) {
 
@@ -74,26 +78,25 @@ public class Main {
                System.out.println("4.) Exit");
 
                type2 = input.nextInt();
+               //if input.nextInt(1)
                switch (type2) {
-                   case "Conifers":
-                       Flora getType = Conifers {
-                       System.out.println(FloraDb.getFlora().set(Conifers));
-                   }
-                   System.out.println();
+                   case 1 : //(type2 == 1)
+                       System.out.println("Here is the list of Conifers:");
+                       FloraDb.getConifers();
+
                        break;
 
-                   case "Leaf Trees":
-                       Flora getType = LeafTrees {
-                       System.out.println(FloraDb : LeafTrees);
-                   }
-                   System.out.println();
+                   case 2:
+                       System.out.println("select * from Flora" + LeafTrees);
+                       System.out.println();
+
                        break;
 
-                   case "Perennials":
-                       Flora getType = Perenials {
-                       System.out.println(FloraDb : Perenials);
-                   }
-                   System.out.println();
+
+                   case 3:
+                       System.out.println("select * from Flora" + Perenials);
+                       System.out.println();
+
                        break;
 
                    default:
