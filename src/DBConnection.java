@@ -58,6 +58,12 @@ public class DBConnection {
 
             while (rs.next()) {
                 flora.setFloraID(rs.getInt("floraID"));
+                flora.setFloraID(rs.getInt("latinName"));
+                flora.setFloraID(rs.getInt("latvianName"));
+                flora.setFloraID(rs.getInt("type"));
+                flora.setFloraID(rs.getInt("soil"));
+                flora.setFloraID(rs.getInt("light"));
+                flora.setFloraID(rs.getInt("height"));
                 // aizpildits atlikušās kolonnas
                 System.out.println(flora);
             }
@@ -67,15 +73,71 @@ public class DBConnection {
         }
     }
 
+    public void getLeafTree () {
 
+        try {
 
+            Statement statement = conn.createStatement();
+            String sqlStatement = "SELECT * FROM Flora WHERE type = 'leafTree'";
+
+            ResultSet rs = statement.executeQuery(sqlStatement);
+
+            System.out.println("Please see the List of all LeafTrees in database :");
+
+            LeafTree flora = new LeafTree();
+
+            while (rs.next()) {
+                flora.setFloraID(rs.getInt("floraID"));
+                flora.setFloraID(rs.getInt("latinName"));
+                flora.setFloraID(rs.getInt("latvianName"));
+                flora.setFloraID(rs.getInt("type"));
+                flora.setFloraID(rs.getInt("soil"));
+                flora.setFloraID(rs.getInt("light"));
+                flora.setFloraID(rs.getInt("height"));
+
+                System.out.println(flora);
+            }
+
+        } catch (SQLException exception) {
+            System.out.println("Error getting LeafTree list: " + exception);
+        }
+    }
+    public void getPerenials () {
+
+        try {
+
+            Statement statement = conn.createStatement();
+            String sqlStatement = "SELECT * FROM Flora WHERE type = 'perenials'";
+
+            ResultSet rs = statement.executeQuery(sqlStatement);
+
+            System.out.println("Please see the List of all Perenials in database :");
+
+            Perenials flora = new Perenials();
+
+            while (rs.next()) {
+                flora.setFloraID(rs.getInt("floraID"));
+                flora.setFloraID(rs.getInt("latinName"));
+                flora.setFloraID(rs.getInt("latvianName"));
+                flora.setFloraID(rs.getInt("type"));
+                flora.setFloraID(rs.getInt("soil"));
+                flora.setFloraID(rs.getInt("light"));
+                flora.setFloraID(rs.getInt("height"));
+
+                System.out.println(flora);
+            }
+
+        } catch (SQLException exception) {
+            System.out.println("Error getting Perenial list: " + exception);
+        }
+    }
         // add new plant to database
     public void addNewPlant( Flora flora ) {
 
         try {
             Statement statement = conn.createStatement();
             String sqlStatement;
-            if (flora instanceof Conifers || flora instanceof Perenials || flora instanceof LeafTrees) {
+            if (flora instanceof Conifers || flora instanceof Perenials || flora instanceof LeafTree) {
                 Conifers conifer = (Conifers) flora;
                 sqlStatement = "INSERT INTO flora (" +
                         "latinName, latvianName, type, soil, light, height) " +

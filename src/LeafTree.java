@@ -1,13 +1,13 @@
-public class LeafTrees extends Flora {
+public class LeafTree extends Flora {
 
     private String soil;
     private String light;
     private int height;
 
-    public LeafTrees() {
+    public LeafTree() {
     }
 
-    public LeafTrees(String latinName, String latvianName, String type, int floraID, String soil, String light, int height) {
+    public LeafTree(String latinName, String latvianName, String type, int floraID, String soil, String light, int height) {
         super(latvianName, latinName, type, floraID);
         this.soil = soil;
         this.light = light;
@@ -40,7 +40,7 @@ public class LeafTrees extends Flora {
 
     @Override
     public String toString() {
-        return "LeafTrees{" +
+        return "LeafTree{" +
                 "soil='" + soil + '\'' +
                 ", light='" + light + '\'' +
                 ", height=" + height +

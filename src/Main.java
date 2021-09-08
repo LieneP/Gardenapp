@@ -78,24 +78,24 @@ public class Main {
                System.out.println("4.) Exit");
 
                type2 = input.nextInt();
-               //if input.nextInt(1)
+
                switch (type2) {
-                   case 1 : //(type2 == 1)
+                   case 1 :
                        System.out.println("Here is the list of Conifers:");
                        FloraDb.getConifers();
 
                        break;
 
                    case 2:
-                       System.out.println("select * from Flora" + LeafTrees);
-                       System.out.println();
+                       System.out.println("Here is the list of LeafTrees:");
+                       FloraDb.getLeafTree();
 
                        break;
 
 
                    case 3:
-                       System.out.println("select * from Flora" + Perenials);
-                       System.out.println();
+                       System.out.println("Here is the list of Perenials:");
+                       FloraDb.getPerenials();
 
                        break;
 
