@@ -83,27 +83,21 @@ public class Main {
                    case 1 :
                        System.out.println("Here is the list of Conifers:");
                        FloraDb.getConifers();
-
                        break;
 
                    case 2:
                        System.out.println("Here is the list of LeafTrees:");
                        FloraDb.getLeafTree();
-
                        break;
-
 
                    case 3:
                        System.out.println("Here is the list of Perenials:");
                        FloraDb.getPerenials();
-
                        break;
 
                    default:
                        throw new IllegalStateException("Unexpected value: " + type2);
                }
-
-
                break;
        }
 

@@ -58,13 +58,13 @@ public class DBConnection {
 
             while (rs.next()) {
                 flora.setFloraID(rs.getInt("floraID"));
-                flora.setFloraID(rs.getInt("latinName"));
-                flora.setFloraID(rs.getInt("latvianName"));
-                flora.setFloraID(rs.getInt("type"));
-                flora.setFloraID(rs.getInt("soil"));
-                flora.setFloraID(rs.getInt("light"));
-                flora.setFloraID(rs.getInt("height"));
-                // aizpildits atlikušās kolonnas
+                flora.setLatinName(rs.getString("latinName"));
+                flora.setLatvianName(rs.getString("latvianName"));
+                flora.setType(rs.getString("type"));
+                flora.setSoil(rs.getString("soil"));
+                flora.setLight(rs.getString("light"));
+                flora.setHeight(rs.getInt("height"));
+
                 System.out.println(flora);
             }
 
@@ -88,12 +88,12 @@ public class DBConnection {
 
             while (rs.next()) {
                 flora.setFloraID(rs.getInt("floraID"));
-                flora.setFloraID(rs.getInt("latinName"));
-                flora.setFloraID(rs.getInt("latvianName"));
-                flora.setFloraID(rs.getInt("type"));
-                flora.setFloraID(rs.getInt("soil"));
-                flora.setFloraID(rs.getInt("light"));
-                flora.setFloraID(rs.getInt("height"));
+                flora.setLatinName(rs.getString("latinName"));
+                flora.setLatvianName(rs.getString("latvianName"));
+                flora.setType(rs.getString("type"));
+                flora.setSoil(rs.getString("soil"));
+                flora.setLight(rs.getString("light"));
+                flora.setHeight(rs.getInt("height"));
 
                 System.out.println(flora);
             }
@@ -117,12 +117,12 @@ public class DBConnection {
 
             while (rs.next()) {
                 flora.setFloraID(rs.getInt("floraID"));
-                flora.setFloraID(rs.getInt("latinName"));
-                flora.setFloraID(rs.getInt("latvianName"));
-                flora.setFloraID(rs.getInt("type"));
-                flora.setFloraID(rs.getInt("soil"));
-                flora.setFloraID(rs.getInt("light"));
-                flora.setFloraID(rs.getInt("height"));
+                flora.setLatinName(rs.getString("latinName"));
+                flora.setLatvianName(rs.getString("latvianName"));
+                flora.setType(rs.getString("type"));
+                flora.setSoil(rs.getString("soil"));
+                flora.setLight(rs.getString("light"));
+                flora.setHeight(rs.getInt("height"));
 
                 System.out.println(flora);
             }
@@ -139,9 +139,7 @@ public class DBConnection {
             String sqlStatement;
             if (flora instanceof Conifers || flora instanceof Perenials || flora instanceof LeafTree) {
                 Conifers conifer = (Conifers) flora;
-                sqlStatement = "INSERT INTO flora (" +
-                        "latinName, latvianName, type, soil, light, height) " +
-                        "VALUES (" +
+                sqlStatement = "INSERT INTO flora (" + "latinName, latvianName, type, soil, light, height) " + "VALUES (" +
                         "'" + conifer.getLatinName() + "'," +
                         "'" + conifer.getLatvianName() + "'," +
                         "'" + conifer.getType() + "'," +
