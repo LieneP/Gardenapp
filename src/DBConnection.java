@@ -39,9 +39,6 @@ public class DBConnection {
 
     }
 
-    // we should create sql statement for:
-    // 1. print out all info from database about one type plants, for example, conifers
-    // 2. filter out exact info from database
 
     public void getConifers () {
 
@@ -124,13 +121,15 @@ public class DBConnection {
                 flora.setLight(rs.getString("light"));
                 flora.setHeight(rs.getInt("height"));
 
-                System.out.println(flora);
+                System.out.println(flora.toString());
             }
 
         } catch (SQLException exception) {
             System.out.println("Error getting Perenial list: " + exception);
         }
     }
+
+
         // add new plant to database
     public void addNewPlant( Flora flora ) {
 

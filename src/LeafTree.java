@@ -7,8 +7,8 @@ public class LeafTree extends Flora {
     public LeafTree() {
     }
 
-    public LeafTree(String latinName, String latvianName, String type, int floraID, String soil, String light, int height) {
-        super(latvianName, latinName, type, floraID);
+    public LeafTree(int floraID, String latinName, String latvianName, String type, String soil, String light, int height) {
+        super(floraID, latinName, latvianName, type);
         this.soil = soil;
         this.light = light;
         this.height = height;
@@ -41,7 +41,11 @@ public class LeafTree extends Flora {
     @Override
     public String toString() {
         return "LeafTree{" +
-                "soil='" + soil + '\'' +
+                "floraID=" + floraID +
+                ", latinName='" + latinName + '\'' +
+                ", latvianName='" + latvianName + '\'' +
+                ", type='" + type + '\'' +
+                ", soil='" + soil + '\'' +
                 ", light='" + light + '\'' +
                 ", height=" + height +
                 '}';

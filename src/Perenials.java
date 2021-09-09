@@ -7,13 +7,12 @@ public class Perenials extends Flora {
     public Perenials() {
     }
 
-    public Perenials(String latinName, String latvianName, String type, int floraID, String soil, String light, int height) {
-        super(latvianName, latinName, type, floraID);
+    public Perenials(int floraID, String latinName, String latvianName, String type, String soil, String light, int height) {
+        super(floraID, latinName, latvianName, type);
         this.soil = soil;
         this.light = light;
         this.height = height;
     }
-
 
     public String getSoil() {
         return soil;
@@ -42,7 +41,11 @@ public class Perenials extends Flora {
     @Override
     public String toString() {
         return "Perenials{" +
-                "soil='" + soil + '\'' +
+                "floraID=" + floraID +
+                ", latinName='" + latinName + '\'' +
+                ", latvianName='" + latvianName + '\'' +
+                ", type='" + type + '\'' +
+                ", soil='" + soil + '\'' +
                 ", light='" + light + '\'' +
                 ", height=" + height +
                 '}';

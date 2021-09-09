@@ -1,17 +1,25 @@
 public class Flora {
 
+    protected int floraID;
     protected String latinName;
     protected String latvianName;
     protected String type;
-    protected int floraID;
 
     public Flora() {
     }
 
-    public Flora(String latinName, String latvianName, String type, int floraID) {
+    public Flora(int floraID, String latinName, String latvianName, String type) {
+        this.floraID = floraID;
         this.latinName = latinName;
         this.latvianName = latvianName;
         this.type = type;
+    }
+
+    public int getFloraID() {
+        return floraID;
+    }
+
+    public void setFloraID(int floraID) {
         this.floraID = floraID;
     }
 
@@ -39,21 +47,13 @@ public class Flora {
         this.type = type;
     }
 
-    public int getFloraID() {
-        return floraID;
-    }
-
-    public void setFloraID(int floraID) {
-        this.floraID = floraID;
-    }
-
     @Override
     public String toString() {
         return "Flora{" +
-                "latinName='" + latinName + '\'' +
+                "floraID=" + floraID +
+                ", latinName='" + latinName + '\'' +
                 ", latvianName='" + latvianName + '\'' +
                 ", type='" + type + '\'' +
-                ", floraID=" + floraID +
                 '}';
     }
 }

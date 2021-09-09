@@ -34,6 +34,19 @@ public class Main {
                System.out.println("3.) Perennials");
 
                type = input.nextInt();
+               switch (type) {
+                   case 1 :
+                       FloraDb.getConifers();
+                       break;
+                   case 2:
+                       FloraDb.getLeafTree();
+                       break;
+                   case 3:
+                       FloraDb.getPerenials();
+                       break;
+                   default:
+                       throw new IllegalStateException("Unexpected value: " + type);
+               }
 
                int soil;
                System.out.println("What type of soil do you have in your garden, please select:");
@@ -44,6 +57,19 @@ public class Main {
                System.out.println("5.) peat soil");
 
                soil = input.nextInt();
+              /* switch (soil) {
+                   case 1:
+                       System.out.println("Plants that prefer clay soil");
+                       FloraDb.findPlantBySoil();
+                       break;
+                   case 2:
+                       System.out.println("Plants that prefer sandy soil");
+                       FloraDb.findPlantBySoil();
+                       break;
+                   default:
+                       throw new IllegalStateException("Unexpected value: " + soil);
+               }*/
+
 
                int light;
                System.out.println("Please select light conditions:");
@@ -58,8 +84,6 @@ public class Main {
                System.out.println("2.) 51-100 cm");
                System.out.println("3.) 101-200 cm");
                System.out.println("4.) above 200 cm");
-
-               height = input.nextInt();
 
                System.out.println("Please pick a random plant");
                System.out.println("Exit");
