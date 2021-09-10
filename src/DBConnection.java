@@ -1,5 +1,6 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DBConnection {
 
@@ -39,7 +40,6 @@ public class DBConnection {
 
     }
 
-
     public void getConifers () {
 
         try {
@@ -70,7 +70,9 @@ public class DBConnection {
         }
     }
 
-    public void getLeafTree () {
+    public ArrayList<Flora> getLeafTree () {
+
+        ArrayList<Flora> leafTree = new ArrayList<>();
 
         try {
 
@@ -93,12 +95,15 @@ public class DBConnection {
                 flora.setHeight(rs.getInt("height"));
 
                 System.out.println(flora);
+                leafTree.add(flora);
             }
 
         } catch (SQLException exception) {
             System.out.println("Error getting LeafTree list: " + exception);
         }
+        return leafTree;
     }
+
     public void getPerenials () {
 
         try {
@@ -121,13 +126,108 @@ public class DBConnection {
                 flora.setLight(rs.getString("light"));
                 flora.setHeight(rs.getInt("height"));
 
-                System.out.println(flora.toString());
+                System.out.println(flora);
             }
 
         } catch (SQLException exception) {
             System.out.println("Error getting Perenial list: " + exception);
         }
     }
+
+    public void getPerenialSoil () {
+
+        try {
+
+            Statement statement = conn.createStatement();
+            String sqlStatement = "SELECT * FROM Flora WHERE soil = 'loam soil' AND type = 'perenials'";
+
+            ResultSet rs = statement.executeQuery(sqlStatement);
+
+            System.out.println("These plants prefer loam soil :");
+
+            Perenials flora = new Perenials();
+
+            while (rs.next()) {
+                flora.setFloraID(rs.getInt("floraID"));
+                flora.setLatinName(rs.getString("latinName"));
+                flora.setLatvianName(rs.getString("latvianName"));
+                flora.setType(rs.getString("type"));
+                flora.setSoil(rs.getString("soil"));
+                flora.setLight(rs.getString("light"));
+                flora.setHeight(rs.getInt("height"));
+
+                System.out.println(flora);
+            }
+
+        } catch (SQLException exception) {
+            System.out.println("Error getting soil list: " + exception);
+        }
+    }
+    public void getPerenialLight () {
+
+        try {
+
+            Statement statement = conn.createStatement();
+            String sqlStatement = "SELECT * FROM Flora WHERE soil = 'loam soil' AND type = 'perenials' AND light = 'sunny'";
+
+            ResultSet rs = statement.executeQuery(sqlStatement);
+
+            System.out.println("These plants prefer sunny place :");
+
+            Perenials flora = new Perenials();
+
+            while (rs.next()) {
+                flora.setFloraID(rs.getInt("floraID"));
+                flora.setLatinName(rs.getString("latinName"));
+                flora.setLatvianName(rs.getString("latvianName"));
+                flora.setType(rs.getString("type"));
+                flora.setSoil(rs.getString("soil"));
+                flora.setLight(rs.getString("light"));
+                flora.setHeight(rs.getInt("height"));
+
+                System.out.println(flora);
+            }
+
+        } catch (SQLException exception) {
+            System.out.println("Error getting light list: " + exception);
+        }
+    }
+
+    public void getPerenialHeight () {
+
+        try {
+
+            Statement statement = conn.createStatement();
+            String sqlStatement = "SELECT * FROM Flora WHERE soil = 'loam soil' AND type = 'perenials' AND light = 'sunny' AND height > 50";
+
+            ResultSet rs = statement.executeQuery(sqlStatement);
+
+            System.out.println("Willing plant height :");
+
+            Perenials flora = new Perenials();
+
+            while (rs.next()) {
+                flora.setFloraID(rs.getInt("floraID"));
+                flora.setLatinName(rs.getString("latinName"));
+                flora.setLatvianName(rs.getString("latvianName"));
+                flora.setType(rs.getString("type"));
+                flora.setSoil(rs.getString("soil"));
+                flora.setLight(rs.getString("light"));
+                flora.setHeight(rs.getInt("height"));
+
+                System.out.println(flora);
+            }
+
+        } catch (SQLException exception) {
+            System.out.println("Error getting exact height: " + exception);
+        }
+    }
+    /*public void createSoilSwitch(Scanner scanner) {
+        System.out.println("Enter type of soil. 1 - clay soil, 2 - sandy soil, 3 - clay sand soil, loam soil, peat soil");
+        int soilType = scanner.nextInt();
+        scanner.nextInt();
+    }*/
+
 
 
         // add new plant to database
