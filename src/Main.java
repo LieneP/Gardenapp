@@ -41,7 +41,7 @@ public class Main {
                         trees = FloraDb.getLeafTree();
 
                         break;
-                    case 3:
+                  case 3:
                         FloraDb.getPerenials();
                         break;
                     default:
